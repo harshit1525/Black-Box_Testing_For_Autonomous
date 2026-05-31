@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+/* Custom styles for active direction indicators */
+.dir-active-left {
+    background-color: #ef4444 !important; /* Red */
+    color: white !important;
+    box-shadow: 0 0 15px rgba(239, 68, 68, 0.5) !important;
+    transform: scale(1.1);
+}
+
+.dir-active-straight {
+    background-color: #22c55e !important; /* Green */
+    color: white !important;
+    box-shadow: 0 0 15px rgba(34, 197, 94, 0.5) !important;
+    transform: scale(1.1);
+}
+
+.dir-active-right {
+    background-color: #3b82f6 !important; /* Blue */
+    color: white !important;
+    box-shadow: 0 0 15px rgba(59, 130, 246, 0.5) !important;
+    transform: scale(1.1);
+}
