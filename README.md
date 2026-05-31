@@ -139,3 +139,4 @@ This project demonstrates how **Black-Box Machine Learning models** can be combi
 
 - Harshit Gupta  
 - Arushi Sharma  
+- Bhoomi Aggarwal
