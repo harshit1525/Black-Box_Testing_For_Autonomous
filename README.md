@@ -1,68 +1,141 @@
-# Black-Box_Testing_For_Autonomous_Driving
+# 🚗 Black-Box Testing for Autonomous Driving System
 
 A full-stack web application that simulates an autonomous driving decision system. It combines a Machine Learning model for lane-based steering angle prediction with a YOLOv8 object detection system to make intelligent, real-time safety overrides (such as slowing down or stopping).
 
+---
+
+## 📸 Demo
+
+### Input Image
+
+![Input](assets/input.jpg)
+
+### Output (Detection + Decision)
+
+![Output](assets/output.jpg)
+![Output](assets/output1.jpg)
+
+### Dashboard UI
+
+![UI](assets/frontend.jpg)
+
+---
+
 ## ✨ Features
 
-- **Hybrid AI Logic:** Merges traditional Machine Learning (Random Forest) for steering predictions with deep learning (YOLOv8) for dynamic object detection.
-- **Robustness Testing:** Includes scripts to evaluate the model's performance under various weather and lighting conditions (rain, snow, night, fog).
-- **Intelligent Decision Engine:** Analyzes object proximity using bounding box area ratios and intelligently adjusts the steering direction to avoid collisions.
-- **Modern Interactive UI:** A sleek, responsive dashboard featuring visual indicators, a dynamic steering wheel animation, and real-time bounding boxes drawn over the uploaded scene.
-- **FastAPI Backend:** High-performance REST API for processing images and serving the frontend interface seamlessly.
+* **Hybrid AI Logic:** Combines Machine Learning (Random Forest) for steering prediction with Deep Learning (YOLOv8) for real-time object detection.
+* **Robustness Testing:** Evaluates performance under different conditions like rain, fog, snow, and night.
+* **Intelligent Decision Engine:** Uses bounding box area and position to override unsafe steering decisions.
+* **Interactive UI:** Real-time dashboard with steering animation and visual bounding boxes.
+* **FastAPI Backend:** High-performance API for seamless frontend-backend communication.
+
+---
 
 ## 🛠️ Tech Stack
 
-- **Backend:** Python, FastAPI, Uvicorn, OpenCV (cv2)
-- **Machine Learning:** Scikit-Learn (Random Forest), Ultralytics (YOLOv8)
-- **Frontend:** HTML5, Vanilla JavaScript, CSS3
-- **Data Visualization:** Chart.js (for feature importance graphs)
+* **Backend:** Python, FastAPI, Uvicorn, OpenCV
+* **Machine Learning:** Scikit-learn (Random Forest), Ultralytics YOLOv8
+* **Frontend:** HTML, CSS, JavaScript
+* **Visualization:** Chart.js
+
+---
+
+## 📁 Project Structure
+
+```
+backend/        # FastAPI backend + ML models  
+frontend/       # UI files  
+dataset/        # (not included due to size)  
+assets/         # Images used in README  
+README.md  
+.gitignore  
+```
+
+---
+
+## 📂 Dataset
+
+The dataset used for training is not included in this repository due to size constraints.
+
+👉 Download here: **https://www.kaggle.com/datasets/solesensei/solesensei_bdd100k**
+
+---
 
 ## ⚙️ Installation & Setup
 
-Follow these steps to run the application on your local machine.
+### 1. Clone the Repository
 
-### 1. Prerequisites
-Ensure you have **Python 3.9+** installed on your system.
-
-### 2. Clone the Repository
 ```bash
 git clone https://github.com/harshit1525/Black-Box_Testing_For_Autonomous_Driving.git
 cd Black-Box_Testing_For_Autonomous_Driving
 ```
 
-### 3. Create a Virtual Environment
+### 2. Create Virtual Environment
+
 ```bash
 python -m venv .venv
-# Activate on Windows:
+
+# Windows
 .venv\Scripts\activate
-# Activate on Mac/Linux:
+
+# Mac/Linux
 source .venv/bin/activate
 ```
 
-### 4. Install Dependencies
+### 3. Install Dependencies
+
 ```bash
 cd backend
 pip install -r requirements.txt
 ```
 
-### 5. Start the Server
+### 4. Run the Server
+
 ```bash
 uvicorn main:app --reload
 ```
-The FastAPI server will start, and the frontend will be served automatically.
 
-### 6. Open the Dashboard
-Open your web browser and go to:
-**[http://127.0.0.1:8000/static/index.html](http://127.0.0.1:8000/static/index.html)**
+### 5. Open the Application
 
-## 🧠 How It Works (The Pipeline)
-
-1. **Upload:** A user drags and drops a driving scene image into the frontend dashboard.
-2. **Lane Detection:** The backend uses OpenCV to extract lanes and structural features from the image.
-3. **Steering Prediction:** The pre-trained Random Forest model (`rf_model.joblib`) predicts a base steering angle (Left, Right, or Straight).
-4. **Object Detection (Safety Override):** YOLOv8 scans the image for obstacles (cars, pedestrians). It calculates their position and estimated distance.
-5. **Final Decision:** The logic engine merges the steering prediction with object proximity data. If an obstacle is too close, the system overrides the steering to **SLOW DOWN** or **STOP** and displays this reasoning on the UI.
+```
+http://127.0.0.1:8000/static/index.html
+```
 
 ---
 
-> *This project was built to demonstrate how Black-Box Machine Learning models can be integrated with deterministic safety logic for autonomous vehicle testing.*
+## 🧠 How It Works (Pipeline)
+
+1. **Upload Image:** User uploads a driving scene via the web interface.
+2. **Lane Detection:** OpenCV extracts lane features.
+3. **Steering Prediction:** Random Forest predicts direction (Left/Right/Straight).
+4. **Object Detection:** YOLOv8 detects obstacles like vehicles and pedestrians.
+5. **Decision Engine:** Combines both outputs to override unsafe actions (Slow Down / Stop).
+
+---
+
+## 🎯 Example Output
+
+* **Steering Prediction:** Left
+* **Detected Object:** Car
+* **Final Decision:** Slow Down
+
+---
+
+## 🚀 Future Improvements
+
+* Real-time video processing
+* Integration with autonomous driving simulators
+* Deployment using cloud services
+
+---
+
+## 📌 Conclusion
+
+This project demonstrates how **Black-Box Machine Learning models** can be combined with **rule-based safety logic** to improve decision-making in autonomous driving systems.
+
+---
+
+## 👨‍💻 Contributors
+
+- Harshit Gupta  
+- Arushi Sharma  
